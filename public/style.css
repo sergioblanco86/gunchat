@@ -220,6 +220,9 @@ html, body {
 }
 
 @media only screen and (max-width: 600px) {
+    .container{
+        justify-content: start;
+    }
     .chatbox {
         width: calc(100% - 15px);
     }
