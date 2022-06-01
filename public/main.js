@@ -20,6 +20,12 @@ function checkUser() {
 
 function showLogin() {
     CHATBOX.innerHTML = loginTemplate();
+    passwordinput = document.getElementById('password');
+    passwordinput.addEventListener("keyup", async function (event) {
+        if (event.key === "Enter") {
+            userLogin()
+        }
+    });
 }
 
 function showChat() {
