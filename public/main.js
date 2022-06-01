@@ -1,4 +1,4 @@
-gun = Gun(['./gun']);
+gun = Gun([ location.origin + '/gun']);
 SEA = Gun.SEA;
 USER = gun.user().recall({ sessionStorage: true });
 SECRET_KEY = "#foo";

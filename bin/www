@@ -7,6 +7,7 @@
 var app = require('../server');
 var debug = require('debug')('myapp:server');
 var http = require('http');
+const GUN = require('gun');
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +21,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+const gun = GUN({ web: server });
 
 /**
  * Listen on provided port, on all network interfaces.

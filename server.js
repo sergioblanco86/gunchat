@@ -1,9 +1,8 @@
 const express = require('express')
-const GUN = require('gun');
+
 var path = require('path');
 const app = express()
-const server = require('http').Server(app)
-const gun = GUN({ web: server });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
