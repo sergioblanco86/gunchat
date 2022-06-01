@@ -222,9 +222,11 @@ html, body {
 @media only screen and (max-width: 600px) {
     .container{
         justify-content: start;
+        padding-top: 20px;
     }
     .chatbox {
         width: calc(100% - 15px);
+        height: calc(100% - 58px);
     }
     .container h1{
         font-size: 18px;
