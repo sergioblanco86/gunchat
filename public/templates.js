@@ -16,7 +16,6 @@ function chatBoxMessagesTemplate(messages, user) {
         <div class="chatbox__messages__user-message">
             <div class="chatbox__messages__user-message--ind-message ${user == message.who ? 'mine' : ''}">
                 <p class="name">${message.who}</p>
-                <br />
                 <p class="message">${message.what}</p>
                 <p class="when">${ts.toLocaleTimeString()}</p>
             </div>
