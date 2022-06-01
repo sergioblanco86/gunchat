@@ -263,7 +263,8 @@ body {
         width: 55px;
         font-size: 12px;
         top: 3px;
-        left: 6px;
+        left: 15px;
         z-index: 9;
+        position: fixed;
     }
 }
