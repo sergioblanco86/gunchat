@@ -4,10 +4,13 @@
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
 }
-html, body {
+
+html,
+body {
     background: linear-gradient(120deg, rgba(23, 190, 187, 1), rgba(240, 166, 202, 1));
     overflow: hidden;
 }
+
 .container {
     display: flex;
     justify-content: center;
@@ -16,11 +19,13 @@ html, body {
     height: 100vh;
     width: 100vw;
 }
+
 .container h1 {
     margin: 0.5em auto;
     color: #fff;
     text-align: center;
 }
+
 .chatbox {
     background: rgba(255, 255, 255, 0.05);
     width: 600px;
@@ -29,6 +34,7 @@ html, body {
     position: relative;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
 }
+
 /* .chatbox__messages:nth-of-type(odd) .chatbox__messages__user-message--ind-message {
     float: right;
 } */
@@ -67,6 +73,7 @@ html, body {
 .chatbox__messages__user-message {
     width: auto;
 }
+
 .chatbox__messages__user-message--ind-message {
     background: rgba(255, 255, 255, 0.2);
     padding: 1em 0;
@@ -77,17 +84,19 @@ html, body {
     overflow: auto;
     margin-bottom: 0px;
 }
-.chatbox__messages__user-message--ind-message > p.name {
+
+.chatbox__messages__user-message--ind-message>p.name {
     color: #fff;
     font-size: 1em;
 }
-.chatbox__messages__user-message--ind-message > p.message {
+
+.chatbox__messages__user-message--ind-message>p.message {
     color: #fff;
     font-size: 0.7em;
     margin: 0 2.8em;
 }
 
-.chatbox__messages__user-message--ind-message > p.when{
+.chatbox__messages__user-message--ind-message>p.when {
     color: #fff;
     margin: 5px 3.5em;
     font-size: 9px;
@@ -101,6 +110,7 @@ html, body {
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
 }
+
 .chatbox__user-list h1 {
     background: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.9);
@@ -110,21 +120,29 @@ html, body {
     font-weight: 300;
     text-align: center;
 }
-.chatbox__user, .chatbox__user--active, .chatbox__user--busy, .chatbox__user--away {
+
+.chatbox__user,
+.chatbox__user--active,
+.chatbox__user--busy,
+.chatbox__user--away {
     width: 0.5em;
     height: 0.5em;
     border-radius: 100%;
     margin: 1em 0.7em;
 }
+
 .chatbox__user--active {
     background: rgba(23, 190, 187, 0.8);
 }
+
 .chatbox__user--busy {
     background: rgba(252, 100, 113, 0.8);
 }
+
 .chatbox__user--away {
     background: rgba(255, 253, 130, 0.8);
 }
+
 .chatbox p {
     float: left;
     text-align: left;
@@ -134,9 +152,11 @@ html, body {
     color: #fff;
     width: 200px;
 }
+
 .chatbox form {
     background: #222;
 }
+
 .chatbox form input {
     background: rgba(255, 255, 255, 0.2);
     position: absolute;
@@ -149,20 +169,24 @@ html, body {
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
 }
+
 ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
+
 :-moz-placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
+
 ::-moz-placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
+
 :-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.login{
+.login {
     position: relative;
     width: 60%;
     left: 50%;
@@ -170,7 +194,7 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
-.login > *{
+.login>* {
     width: 100%;
     position: relative;
     height: 30px;
@@ -179,29 +203,29 @@ html, body {
     border-radius: 3px;
 }
 
-.login h5{
+.login h5 {
     color: #FFF;
 }
 
-.login input{
-    background-color: rgba(255,255,255,0.6);
+.login input {
+    background-color: rgba(255, 255, 255, 0.6);
     border: 1px solid #3f778a;
     outline: none;
 }
 
-.login button{
+.login button {
     background-color: #257374;
     border: 1px solid #3f778a;
     outline: none;
     color: #FFF;
 }
 
-.login button:hover{
+.login button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.logout-bto{
+.logout-bto {
     position: absolute;
     top: -48px;
     right: 0;
@@ -209,7 +233,7 @@ html, body {
     width: 80px;
 }
 
-#messages-wrapper{
+#messages-wrapper {
     position: absolute;
     height: calc(100% - 64px);
     overflow-y: auto;
@@ -220,21 +244,26 @@ html, body {
 }
 
 @media only screen and (max-width: 600px) {
-    .container{
+    .container {
         justify-content: start;
-        padding-top: 20px;
     }
+
     .chatbox {
         width: calc(100% - 15px);
-        height: calc(100% - 58px);
+        height: 100%;
+        top: 0;
     }
-    .container h1{
-        font-size: 18px;
+
+    .container h1 {
+        display: none;
     }
+
     .logout-bto {
-        top: -32px;
         height: 25px;
         width: 55px;
         font-size: 12px;
+        top: 3px;
+        left: 6px;
+        z-index: 9;
     }
-  }
+}

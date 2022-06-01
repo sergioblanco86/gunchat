@@ -1,6 +1,6 @@
 function logOutBtoTemplate() {
     return `
-    <button onclick="userLogout()" class="logout-bto">Logout</button>
+    <button onclick="userLogout()" class="logout-bto">Log Out</button>
     `;
 }
 
