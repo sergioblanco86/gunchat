@@ -70,11 +70,10 @@ function showChat() {
                 console.log({ message });
 
 
-                chatBoxMessagesWrapper.scrollTop = chatBoxMessagesWrapper.scrollHeight;
-
                 if (message.what) {
                     messages = [...messages.slice(-100), message].sort((a, b) => a.when - b.when);
                     chatBoxMessagesWrapper.innerHTML = chatBoxMessagesTemplate(messages, USER_ALIAS);
+                    chatBoxMessagesWrapper.scrollTop = chatBoxMessagesWrapper.scrollHeight;
                 }
             }
         });
