@@ -5,6 +5,7 @@ SECRET_KEY = "#foo";
 CHATBOX = document.getElementById('chatbox');
 chatMessageBox = null;
 USER_ALIAS = null;
+messages = [];
 
 function checkUser() {
     if (USER.is) {
@@ -44,10 +45,19 @@ function showChat() {
         }
     });
 
+    var match = {
+        // lexical queries are kind of like a limited RegEx or Glob.
+        '.': {
+          // property selector
+          '>': new Date(+new Date() - 1 * 1000 * 60 * 60 * 3).toISOString(), // find any indexed property larger ~3 hours ago
+        },
+        '-': 1, // filter in reverse
+      };
+
     // GetGun chats
     gun
         .get("chat")
-        .map()
+        .map(match)
         .once(async (data, id) => {
             if (data) {
                 const message = {
@@ -59,14 +69,13 @@ function showChat() {
                 };
                 console.log({ message });
 
-                chatBoxMessagesWrapper.innerHTML += chatBoxMessagesTemplate(message, USER_ALIAS);
-
 
                 chatBoxMessagesWrapper.scrollTop = chatBoxMessagesWrapper.scrollHeight;
 
-                // if (message.what) {
-                //     setMessages(old => [...old.slice(-100), message]);
-                // }
+                if (message.what) {
+                    messages = [...messages.slice(-100), message].sort((a, b) => a.when - b.when);
+                    chatBoxMessagesWrapper.innerHTML = chatBoxMessagesTemplate(messages, USER_ALIAS);
+                }
             }
         });
 }
@@ -93,7 +102,7 @@ function userSignUp() {
     pass = document.getElementById('password').value;
     USER.create(username, pass, function (ack) {
         if ("err" in ack && ack.err) {
-            console.log(ack.err);
+            alert(ack.err);
         } else {
             login(username, pass);
         }

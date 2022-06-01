@@ -86,6 +86,13 @@ html, body {
     font-size: 0.7em;
     margin: 0 2.8em;
 }
+
+.chatbox__messages__user-message--ind-message > p.when{
+    color: #fff;
+    margin: 5px 3.5em;
+    font-size: 9px;
+}
+
 .chatbox__user-list {
     background: rgba(255, 255, 255, 0.1);
     width: 25%;
