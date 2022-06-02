@@ -121,6 +121,7 @@ function userSignUp() {
 function userLogout() {
     USER.leave();
     checkUser();
+    messages = [];
 }
 
 
