@@ -64,10 +64,11 @@ function showChat() {
     gun
         .get("chat")
         .map(match)
-        .once(async (data, id) => {
+        .on(async (data, id) => {
             if (data) {
                 const message = {
                     // @ts-ignore
+                    id: id,
                     who: await gun.user(data).get("alias"),
                     what: (await SEA.decrypt(data.what, SECRET_KEY)) + "",
                     // @ts-ignore
@@ -75,8 +76,11 @@ function showChat() {
                 };
                 console.log({ message });
 
+                var messages_copy = messages.filter(function(m){
+                    return m.id == id
+                })
 
-                if (message.what) {
+                if (message.what && messages_copy.length == 0) {
                     messages = [...messages.slice(-100), message].sort((a, b) => a.when - b.when);
                     chatBoxMessagesWrapper.innerHTML = chatBoxMessagesTemplate(messages, USER_ALIAS);
                     chatBoxMessagesWrapper.scrollTop = chatBoxMessagesWrapper.scrollHeight;
